@@ -68,7 +68,7 @@
 			
 				
 		      		<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
-		      		<a href="layout.html" title="Inicio">
+		      		<a href="layout.php" title="Inicio">
 
 							<img id="logo" src="imagenes/logo.png" onmouseover="this.src='imagenes/logopulsado.png';" onmouseout="this.src='imagenes/logo.png';"/>
 
@@ -76,38 +76,29 @@
 				<h3 id="titulo">Quiz: el juego de las preguntas</h3>
 		    </header>
 
+						<?php 
 
 
+						$link = mysqli_connect("localhost", "root", "Zazpi007", "quiz");
+
+						 
+
+						 $usuarios = mysqli_query($link, "SELECT * from preguntas" );
+
+						echo '<table id="tabla"  > <tr> <th> PREGUNTA </th> <th> PRE.CORRECTA </th> <th> PRE.INCO1 </th> <th> PRE.INCO2 </th> <th> PRE.INCO3 </th> <th> EMAIL </th> <th> COMPLEJIDAD </th> <th> TEMA </th> <th> FOTO </th>
+						</tr>';
+						while ($row = mysqli_fetch_array( $usuarios )) {
+						echo '<tr><td>' . $row['pregunta'] . '</td> <td>' . $row['correcta'] .'</td>  <td>' . $row['inco1'] .'</td> <td>' . $row['inco2'] .'</td> <td>' . $row['inco3'] .'</td> <td>' . $row['email'] .'</td>
+
+						<td>' . $row['complejidad'] .'</td> <td>' . $row['tema'] .'</td><td>' . $row['foto'] .'</td></tr>';
+						}
+						echo '</table>';
+						$usuarios->close();
+						mysqli_close($link);
 
 
-
-
-
-<?php 
-
-
-$link = mysqli_connect("localhost", "root", "Zazpi007", "quiz");
-
- 
-
- $usuarios = mysqli_query($link, "SELECT * from preguntas" );
-
-echo '<table id="tabla"  > <tr> <th> PREGUNTA </th> <th> PRE.CORRECTA </th> <th> PRE.INCO1 </th> <th> PRE.INCO2 </th> <th> PRE.INCO3 </th> <th> EMAIL </th> <th> COMPLEJIDAD </th> <th> TEMA </th>
-</tr>';
-while ($row = mysqli_fetch_array( $usuarios )) {
-echo '<tr><td>' . $row['pregunta'] . '</td> <td>' . $row['correcta'] .'</td>  <td>' . $row['inco1'] .'</td> <td>' . $row['inco2'] .'</td> <td>' . $row['inco3'] .'</td> <td>' . $row['email'] .'</td>
-
-<td>' . $row['complejidad'] .'</td> <td>' . $row['tema'] .'</td></tr>';
-}
-echo '</table>';
-$usuarios->close();
-mysqli_close($link);
-
-
- ?>
-
-
- <footer class='main' id='f1'>
+						 ?>
+	<footer class='main' id='f1'>
 				
 			</footer>
 		</div>

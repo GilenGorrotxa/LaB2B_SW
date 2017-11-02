@@ -1,7 +1,16 @@
+<?php
+include "funciones.php";
+Bienvenido();
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	
+
+
 	<title>Preguntas</title>
     <link rel='stylesheet' type='text/css' href='estilos/style.css' />
 	<link rel='stylesheet' 
@@ -36,6 +45,13 @@
 	a{
 		color:black;
 	}
+	#logout{
+		margin-top: 0px;
+	}
+	#loggeduser{
+		text-align: center;
+		margin-bottom: 0px;
+	}
 	
 	</style>
   </head>
@@ -47,11 +63,12 @@
 		  <div id='page-wrap'>
 
 			<header class='main' id='h1'>
+				
 			
-		      		<span class="right"><a href="index.html">Logout</a></span>
+			<span class="right"><input type="button" id="logout" value="Logout"></span>
 		      		<br>
-		      		<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
-		      		<a href="preguntas.html" title="Preguntas">
+		      		
+		      		<a href="InsertarPregunta.php" title="Preguntas">
 
 							<img id="logo" src="imagenes/logo.png" onmouseover="this.src='imagenes/logopulsado.png';" onmouseout="this.src='imagenes/logo.png';"/>
 
@@ -61,8 +78,13 @@
 
 
 			<nav class='main' id='n1' role='navigation'>
-				<span><a href='layout.html'><img id="ini" src="imagenes/inicio.png" onmouseover="this.src='imagenes/iniciopul.png';" onmouseout="this.src='imagenes/inicio.png';"/></a></spam>
-				<span><a href='InsertarPregunta.php'><img id="ini" src="imagenes/preguntas.png" onmouseover="this.src='imagenes/preguntaspul.png';" onmouseout="this.src='imagenes/preguntas.png';"/></a></spam>
+				<span><a href='layout.php'><img id="ini" src="imagenes/inicio.png" onmouseover="this.src='imagenes/iniciopul.png';" onmouseout="this.src='imagenes/inicio.png';"/></a></spam>
+				<?php
+				$mail= $_GET['mail'];
+				echo"<span><a href='InsertarPregunta.php?mail=$mail'><img id=ini src=imagenes/preguntas.png onmouseover=this.src='imagenes/preguntaspul.png'; onmouseout=this.src=imagenes/preguntas.png;/></a></spam>";
+
+				?>
+
 				<span><a href='creditos.html'><img id="ini" src="imagenes/creditos.png" onmouseover="this.src='imagenes/creditospul.png';" onmouseout="this.src='imagenes/creditos.png';"/></a></spam>
 				
 			</nav>
@@ -79,6 +101,15 @@
 		</div>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+	$("#logout").click(function() {
 
+		alert("Gracias por su visita.");
+		$(location).attr('href', 'index.html');
+	});
+	
+
+</script>
 </body>
 </html>

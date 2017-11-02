@@ -127,13 +127,14 @@
         border-color:white;
         width:800px;
     }
-	
+   
 	</style>
   </head>
 
 
 
   <body style="background-color:#8FC9D4  ;">
+  
   
 		  <div id='page-wrap'>
 
@@ -146,12 +147,12 @@
 							<img id="logo" src="imagenes/logo.png" onmouseover="this.src='imagenes/logopulsado.png';" onmouseout="this.src='imagenes/logo.png';"/>
 
 					</a>
-				<h3 id="titulo">Quiz: el juego de las preguntas</h3>
+				<h3 id="titulo">Preguntas: Introduce una nueva pregunta.</h3>
 		    </header>
-
+			
+		<form id="form" action="InsertarPreguntaConFoto.php" enctype="multipart/form-data" method="post">
 
 			
-		<form id="form" action="InsertarPregunta.php" enctype="multipart/form-data" method="post">
           
            <label id="et2">Pregunta:</label><input id="pre" type="text" name="pre"><br>
            <label id="et3">Respuesta correcta:</label><input id="preco" type="text" name="preco"><br>
@@ -164,9 +165,10 @@
             <label id="et1">Email:</label><input id="mail" type="text" name="mail"><br>
            <label id="et5">Complejidad(1..5):</label><input type="number" min="1" max="5" id="com" type="text" name="com"><br>
            <label id="et6">Tema:</label><input id="tema" type="text" name="tema"><br>
-           <label id="et7">Imagen:</label><input id="img" type="file" name="img"><br>
-
+           <label id="et7">Imagen:</label> <input type="file" id="img" name="img"/><br>
            
+		
+            
                 <input type="submit" id="button" value="Enviar Pregunta">
          
        </form>
@@ -176,6 +178,7 @@
 				<a href='https://github.com'>Link GITHUB</a>
 			</footer>
 		</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 
@@ -218,14 +221,11 @@
         		alert("Escribe un tema por favor.");  
         		return false;  
    			 }  
-   			
 
 		});  
 		
+
 		
-
-
-
 	
 </script>
 </body>
